@@ -1,0 +1,111 @@
+.button {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+border-radius: 8px;
+border: 1px solid transparent;
+cursor: pointer;
+transition: all 0.2s ease-in-out;
+gap: 8px;
+}
+
+/* Width */
+.widthSmall {
+width: 80px;
+}
+.widthMedium {
+width: 120px;
+}
+.widthLarge {
+width: 240px;
+}
+
+/* Height */
+.heightSmall {
+height: 24px;
+}
+.heightMedium {
+height: 40px;
+}
+.heightLarge {
+height: 52px;
+}
+
+/* Font Color */
+.fontColorWhite {
+color: #fff;
+}
+.fontColorBlack {
+color: #000;
+}
+.fontColorGray {
+color: #787878;
+}
+.fontColorPurple {
+color: #C84EDB;
+}
+
+/* Border Color */
+.borderColorNone {
+border-color: transparent;
+}
+.borderColorPurple {
+border-color: #C84EDB;
+}
+.borderColorLightpurple {
+border-color: #FFEEFE;
+}
+
+/* Font Size */
+.fontSizeSmall {
+font-size: 12px;
+}
+.fontSizeMedium {
+font-size: 14px;
+}
+.fontSizeLarge {
+font-size: 18px;
+}
+
+/* Background Color */
+.bgColorWhite {
+background-color: #fff;
+}
+.bgColorPurple {
+background-color: #C84EDB;
+}
+.bgColorLightpurple {
+background-color: #FFEEFE;
+}
+.bgColorYellow {
+background-color: #FEE500;
+}
+.bgColorGray {
+background-color: #787878;
+}
+
+/* Shadow */
+.shadowNone {
+box-shadow: none;
+}
+.shadowLight {
+box-shadow: 0 2px 2px rgba(0, 0, 0, 0.1);
+}
+.shadowStrong {
+box-shadow: 0 0px 4px rgba(0, 0, 0, 0.3);
+}
+
+/* Icon */
+.icon {
+display: inline-flex;
+align-items: center;
+justify-content: center;
+}
+.iconSmall {
+width: 29px;
+height: 29px;
+}
+.iconLarge {
+width: 80px;
+height: 80px;
+}
