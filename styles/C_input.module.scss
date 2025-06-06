@@ -1,0 +1,54 @@
+.container {
+ position: relative;
+
+ & img {
+  position: absolute;
+  right: 10px;
+  top: 20px;
+ }
+
+ & input[type="radio"] {
+  width: 24px;
+  height: 24px;
+  accent-color: #7A5CFA;
+ }
+
+ & input[type="radio"]:checked+label {
+  color: #7A5CFA;
+ }
+
+ & label {
+  vertical-align: top;
+  padding-left: 22px;
+ }
+}
+
+.defaultInput {
+ font-size: 16px;
+ padding: 22px;
+}
+
+.typeA {
+ width: 488px;
+ height: 66px;
+ border-radius: 15px;
+ border-color: #DFDFDF;
+ color: #5c5c5c;
+ outline: none
+}
+
+.typeB {
+ @extend .typeA;
+ width: 350px;
+ height: 40px;
+}
+
+.error {
+ color: #EB5757;
+ border: 1px solid #EB5757;
+
+ &::placeholder {
+  color: #EB5757;
+
+ }
+}
