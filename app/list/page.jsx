@@ -1,4 +1,10 @@
+'use client'
+
+import { useState } from 'react'
+import { useSearchParams, useRouter } from 'next/navigation'
 import List from "@/common/molecules/list/List"
+import SearchBar from "@/common/molecules/list/SearchBar"
+import Paging from "@/common/molecules/list/Paging"
 
 // 테스트 데이터
 const items = [
@@ -40,30 +46,70 @@ const items = [
  },
 ]
 
+
+/*
 async function getList(search, page) {
- // TODO: API 호출
+  const filtered = items.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const pageSize = 3;
+  const paginated = filtered.slice((page - 1) * pageSize, page * pageSize);
+
+  return {
+    data: paginated,
+    totalPages: Math.ceil(filtered.length / pageSize)
+  };
+}
+*/
+
+//로컬 테스트용, API 호출 시 위 async형식 사용
+function getList(search, page) {
+  const filtered = items.filter(item =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
+
+  const pageSize = 3;
+  const paginated = filtered.slice((page - 1) * pageSize, page * pageSize);
+
+  return {
+    data: paginated,
+    totalPages: Math.ceil(filtered.length / pageSize)
+  };
 }
 
-export default async function ListPage({ searchParams }) {
- // const search = searchParams.search || '';
- // const page = parseInt(searchParams.page) || 1;
- // const data = await getList(search, page);
 
- /**
-  * [리스트 페이지]
-  * SEO에 유리하도록 SSR처리
-  * 아래 세개의 값이 쿼리스트링으로 들어와 리스트를 호출하여 사용
-  * 
-  * - 검색어
-  * - 페이지번호
-  * - 카테고리
-  */
+export default function ListPage() {
+  const router = useRouter();
+  const searchParams = useSearchParams();
+  const initialSearch = searchParams.get('search') || '';
+  const location = searchParams.get('location') || '강동구'; 
+  const [search, setSearch] = useState(initialSearch);
+  const page = parseInt(searchParams.get('page')) || 1;
 
- return (
-  // TODO: SearchBar, Paging 처리
-  <List
-   items={items}
-  />
+  const handleSearch = ({ location, keyword }) => {
+  router.push(`/list?search=${keyword}&location=${location}&page=1`);
+};
 
- )
+  const { data: items, totalPages } = getList(search, page);
+
+  return (
+    <>
+      <SearchBar
+        value={search}
+        onChange={setSearch}
+        onSearch={handleSearch}
+      />
+
+      <List items={items} />
+
+      <Paging
+        currentPage={page}
+        totalPages={totalPages}
+        onPageChange={(newPage) => {
+          router.push(`?search=${search}&location=${location}&page=${newPage}`);
+        }}
+      />
+    </>
+  );
 }
