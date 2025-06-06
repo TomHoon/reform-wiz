@@ -1,0 +1,70 @@
+.container {
+ display: flex;
+ justify-content: space-between;
+ padding: 22px 48px;
+
+ & .icon {
+  width: 182px;
+  font-size: 30px;
+  display: flex;
+  align-items: center;
+  color: #C84EDB;
+  flex: 1;
+ }
+
+ & .navBtnGroup {
+  display: flex;
+  align-items: center;
+  flex: 4;
+
+  & ul {
+   display: flex;
+
+   & li {
+    text-align: center;
+    cursor: pointer;
+   }
+  }
+
+  & .navBtn {
+   width: 88px;
+  }
+
+ }
+
+ & .loginBtnGroup {
+  width: 182px;
+  flex: 1;
+
+  & ul {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   gap: 10px;
+
+   & li {
+    width: 91px;
+    height: 64px;
+    padding: 12px 4px;
+   }
+  }
+
+
+  & button {
+   width: 83px;
+   height: 40px;
+   font-size: 14px;
+   border: none;
+  }
+
+  & .typeA {
+   background: none;
+  }
+
+  & .typeB {
+   background-color: #C84EDB;
+   color: white;
+   border-radius: 10px;
+  }
+ }
+}
