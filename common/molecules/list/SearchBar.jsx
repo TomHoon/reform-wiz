@@ -1,13 +1,20 @@
 'use client'
 
+import { useState } from 'react';
+import { useRouter } from 'next/navigation';
+
 export default function SearchBar({
-  value = '',
-  location = '강동구',
-  onLocationChange,
-  onKeywordChange,
-  onSearch,
+  defaultKeyword = '',
+  defaultLocation = '강동구',
 }) {
+  const router = useRouter();
+  const [keyword, setKeyword] = useState(defaultKeyword);
+  const [location, setLocation] = useState(defaultLocation);
   const locations = ['강동구', '송파구', '중랑구'];
+
+  const handleSearch = () => {
+    router.push(`/list?search=${keyword}&location=${location}&page=1`);
+  };
 
   return (
     <div
@@ -23,7 +30,7 @@ export default function SearchBar({
     {/* 위치 드롭다운 */}
     <select
         value={location}
-        onChange={(e) => onLocationChange(e.target.value)}
+        onChange={(e) => setLocation(e.target.value)}
         style={{
           padding: '8px 12px',
           borderRadius: '999px',
@@ -40,8 +47,8 @@ export default function SearchBar({
     <input
         type="text"
         placeholder="검색어를 입력하세요"
-        value={value}
-        onChange={(e) => onKeywordChange(e.target.value)}
+        value={keyword}
+        onChange={(e) => setKeyword(e.target.value)}
         style={{
           padding: '8px 12px',
           fontSize: '16px',
@@ -53,7 +60,7 @@ export default function SearchBar({
 
      {/* 검색 버튼 */}
       <button
-        onClick={onSearch}
+        onClick={handleSearch}
         style={{
           backgroundColor: '#C84EDB',
           color: '#fff',
