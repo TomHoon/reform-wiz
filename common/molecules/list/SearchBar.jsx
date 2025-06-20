@@ -1,12 +1,9 @@
-'use client'
+'use client';
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
 
-export default function SearchBar({
-  defaultKeyword = '',
-  defaultLocation = '강동구',
-}) {
+export default function SearchBar({ defaultKeyword = '', defaultLocation = '강동구' }) {
   const router = useRouter();
   const [keyword, setKeyword] = useState(defaultKeyword);
   const [location, setLocation] = useState(defaultLocation);
@@ -18,33 +15,34 @@ export default function SearchBar({
 
   return (
     <div
-        style={{
-            display: 'flex',
-            justifyContent: 'center',
-            marginBottom: '50px',
-            textAlign: 'center',
-            gap: '60px',
-        }}
+      style={{
+        display: 'flex',
+        justifyContent: 'center',
+        marginBottom: '50px',
+        textAlign: 'center',
+        gap: '60px',
+      }}
     >
-      
-    {/* 위치 드롭다운 */}
-    <select
+      {/* 위치 드롭다운 */}
+      <select
         value={location}
         onChange={(e) => setLocation(e.target.value)}
         style={{
           padding: '8px 12px',
           borderRadius: '999px',
           border: '1px solid #ccc',
-          fontSize: '14px'
+          fontSize: '14px',
         }}
-    >
-    {locations.map((loc) => (
-    <option key={loc} value={loc}>{loc}</option>
-    ))}
-    </select>
+      >
+        {locations.map((loc) => (
+          <option key={loc} value={loc}>
+            {loc}
+          </option>
+        ))}
+      </select>
 
-    {/* 검색창 */}
-    <input
+      {/* 검색창 */}
+      <input
         type="text"
         placeholder="검색어를 입력하세요"
         value={keyword}
@@ -54,11 +52,11 @@ export default function SearchBar({
           fontSize: '16px',
           width: '60%',
           borderRadius: '4px',
-          border: '1px solid #ccc'
+          border: '1px solid #ccc',
         }}
-    />
+      />
 
-     {/* 검색 버튼 */}
+      {/* 검색 버튼 */}
       <button
         onClick={handleSearch}
         style={{
