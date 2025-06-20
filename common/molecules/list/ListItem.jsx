@@ -1,37 +1,46 @@
-import styles from '@/styles/C_ListItem.module.scss'
+import styles from '@/styles/C_ListItem.module.scss';
 
-import Image from "next/image"
+import Image from 'next/image';
 
 export default function ListItem({
- imageURL = "/images/ex1.png",
- title = "example",
- location = "서울 강동구",
- days = "30"
+  files,
+  title = 'example',
+  wishPlace = '서울 강동구',
+  wishDate = new Date().toISOString().slice(0, 10),
 }) {
- return (
-  <div className={styles.container}>
-   <ul>
-    <li>
-     <Image
-      src={imageURL}
-      alt="example"
-      width={344}
-      height={344}
-     />
-    </li>
-    <li>
-     <h3>{title}</h3>
-    </li>
-    <li className={styles.listInfo}>
-     <span>{location} | </span>
-     <span>입찰기간 D-{days}</span>
-    </li>
+  let 이미지 = '/images/ex1.png';
 
-    <li className={styles.labelGroup}>
-     <span className={styles.labelA}>모집중</span>
-     <span className={styles.labelB}>NEW</span>
-    </li>
-   </ul>
-  </div>
- )
+  if (/\.(png|jpe?g)$/i.test(files[0].fileUrl)) {
+    이미지 = files[0].fileUrl;
+  }
+
+  const getDays = () => {
+    const date1 = new Date();
+    const date2 = new Date(wishDate);
+
+    const diffInMs = date2 - date1;
+    return Math.floor(diffInMs / (1000 * 60 * 60 * 24));
+  };
+
+  return (
+    <div className={styles.container}>
+      <ul>
+        <li>
+          <Image src={이미지} alt="example" width={344} height={344} />
+        </li>
+        <li>
+          <h3>{title}</h3>
+        </li>
+        <li className={styles.listInfo}>
+          <span>{wishPlace} | </span>
+          <span>입찰기간 D-{getDays()}</span>
+        </li>
+
+        <li className={styles.labelGroup}>
+          <span className={styles.labelA}>모집중</span>
+          <span className={styles.labelB}>NEW</span>
+        </li>
+      </ul>
+    </div>
+  );
 }
