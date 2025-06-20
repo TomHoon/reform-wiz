@@ -1,4 +1,4 @@
-'use client'
+'use client';
 
 import { useRouter, useSearchParams } from 'next/navigation';
 
@@ -21,7 +21,7 @@ export default function Paging({ currentPage, totalPages }) {
         <button
           key={page}
           onClick={() => handlePageChange(page)}
-                    style={{
+          style={{
             margin: '0 6px',
             padding: '6px 10px',
             borderRadius: '4px',
