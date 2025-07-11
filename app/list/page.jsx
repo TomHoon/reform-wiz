@@ -3,27 +3,45 @@ import List from '@/common/molecules/list/List';
 import Paging from '@/common/molecules/list/Paging';
 
 export default async function ListPage({ searchParams }) {
-  const { page = 1, size = 9, location = '강동구' } = await searchParams;
+  const {
+    page = 1,
+    size = 9,
+    location = '강동구',
+    title = '',
+    content = '',
+  } = await searchParams;
 
   const param = {
     page,
     size,
+    title,
+    content,
   };
 
-  const url = 'http://localhost:22000/api/v1/board/getBoards';
+  const boardURL = `${process.env.API_URL}/api/v1/board/getBoards`;
+
   const query = new URLSearchParams(param);
 
-  const res = await fetch(`${url}?${query.toString()}`, {
+  const res = await fetch(`${boardURL}?${query.toString()}`, {
     cache: 'no-store',
   });
 
   const { data } = await res.json();
 
+  console.log('startpage >>>> ', data);
+
   return (
     <>
       <SearchBar />
       <List items={data.dtoList} />
-      <Paging currentPage={page} totalPages={data.totalPages} />
+      <Paging
+        currentPage={page}
+        totalPages={data.totalPages}
+        hasNextGroup={data?.hasNextGroup}
+        hasPrevGroup={data?.hasPrevGroup}
+        startPage={data?.startPage}
+        endPage={data?.endPage}
+      />
     </>
   );
 }

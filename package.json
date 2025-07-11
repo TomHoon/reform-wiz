@@ -6,7 +6,9 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "next lint"
+    "lint": "next lint",
+    "dev:local": "cross-env API_URL=http://localhost:22000 next dev",
+    "dev:dev": "cross-env API_URL=http://tomhoon.duckdns.org:22000 next dev"
   },
   "dependencies": {
     "next": "15.3.3",
@@ -15,6 +17,7 @@
     "sass": "^1.89.1"
   },
   "devDependencies": {
+    "cross-env": "^7.0.3",
     "prettier": "^3.5.3"
   }
 }

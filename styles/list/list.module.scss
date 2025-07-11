@@ -1,0 +1,17 @@
+.prevButtonImage {
+  transform: rotateY(180deg);
+}
+.prevButton {
+  background: none;
+  border: none;
+}
+
+.pagingWrapper {
+  display: flex;
+  justify-content: center;
+}
+
+.nextButton {
+  background: none;
+  border: none;
+}
