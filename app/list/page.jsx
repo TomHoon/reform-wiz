@@ -2,14 +2,14 @@ import SearchBar from '@/common/molecules/list/SearchBar';
 import List from '@/common/molecules/list/List';
 import Paging from '@/common/molecules/list/Paging';
 
-export default async function ListPage({ searchParams }) {
+export default async function ListPage({params}) {
   const {
     page = 1,
     size = 9,
     location = '강동구',
     title = '',
     content = '',
-  } = await searchParams;
+  } = params;
 
   const param = {
     page,
@@ -17,18 +17,8 @@ export default async function ListPage({ searchParams }) {
     title,
     content,
   };
-
-  const boardURL = `${process.env.API_URL}/api/v1/board/getBoards`;
-
-  const query = new URLSearchParams(param);
-
-  const res = await fetch(`${boardURL}?${query.toString()}`, {
-    cache: 'no-store',
-  });
-
-  const { data } = await res.json();
-
-  console.log('startpage >>>> ', data);
+  const res = await getData(param);
+  const { data } = res;
 
   return (
     <>
@@ -44,4 +34,15 @@ export default async function ListPage({ searchParams }) {
       />
     </>
   );
+}
+
+export async function getData(param) {
+  const query = new URLSearchParams(param);
+
+  const res = await fetch(`${process.env.API_URL}/api/v1/board/getBoards?${query.toString()}`);
+  const json = await res.json();
+
+  return {
+    ...json
+  };
 }
