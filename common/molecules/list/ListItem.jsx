@@ -33,7 +33,7 @@ export default function ListItem({
         </li>
         <li className={styles.listInfo}>
           <span>{wishPlace} | </span>
-          <span>입찰기간 D-{getDays()}</span>
+          <span>입찰기간 D{getDays()}</span>
         </li>
 
         <li className={styles.labelGroup}>

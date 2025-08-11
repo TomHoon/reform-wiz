@@ -1,70 +1,83 @@
 .container {
- display: flex;
- justify-content: space-between;
- padding: 22px 0;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  background-color: #fff;
+  z-index: 10;
 
- & .icon {
-  width: 182px;
-  font-size: 30px;
-  display: flex;
-  align-items: center;
-  color: #C84EDB;
-  flex: 1;
- }
+  & .wrapper {
+    display: flex;
+    justify-content: space-between;
+    padding: 22px 0;
+    width: 1280px;
+    margin: 0 auto;
+  }
 
- & .navBtnGroup {
-  display: flex;
-  align-items: center;
-  flex: 4;
-
-  & ul {
-   display: flex;
-
-   & li {
-    text-align: center;
+  & .icon {
+    width: 182px;
+    font-size: 30px;
+    display: flex;
+    align-items: center;
+    color: #c84edb;
+    flex: 1;
     cursor: pointer;
-   }
   }
 
-  & .navBtn {
-   width: 88px;
+  & .navBtnGroup {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex: 4;
+
+    & ul {
+      display: flex;
+      gap: 30px;
+
+      & li {
+        text-align: center;
+        cursor: pointer;
+        font-weight: 700;
+        font-size: 18px;
+        line-height: 1.4;
+      }
+    }
+
+    & .navBtn {
+    }
   }
 
- }
+  & .loginBtnGroup {
+    width: 182px;
+    flex: 1;
 
- & .loginBtnGroup {
-  width: 182px;
-  flex: 1;
+    & ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      gap: 10px;
 
-  & ul {
-   display: flex;
-   justify-content: center;
-   align-items: center;
-   gap: 10px;
+      & li {
+        width: 91px;
+        height: 64px;
+        padding: 12px 4px;
+      }
+    }
 
-   & li {
-    width: 91px;
-    height: 64px;
-    padding: 12px 4px;
-   }
+    & button {
+      width: 83px;
+      height: 40px;
+      font-size: 14px;
+      border: none;
+    }
+
+    & .typeA {
+      background: none;
+    }
+
+    & .typeB {
+      background-color: #c84edb;
+      color: white;
+      border-radius: 10px;
+    }
   }
-
-
-  & button {
-   width: 83px;
-   height: 40px;
-   font-size: 14px;
-   border: none;
-  }
-
-  & .typeA {
-   background: none;
-  }
-
-  & .typeB {
-   background-color: #C84EDB;
-   color: white;
-   border-radius: 10px;
-  }
- }
 }

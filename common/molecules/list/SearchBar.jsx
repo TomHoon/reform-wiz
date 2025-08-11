@@ -2,6 +2,9 @@
 
 import { useState } from 'react';
 import { useRouter } from 'next/navigation';
+import styles from '@/styles/searchbar/SearchBard.module.scss'
+import Image from 'next/image';
+
 
 export default function SearchBar({ defaultKeyword = '', defaultLocation = '강동구' }) {
   const router = useRouter();
@@ -14,63 +17,51 @@ export default function SearchBar({ defaultKeyword = '', defaultLocation = '강�
   };
 
   return (
-    <div
-      style={{
-        display: 'flex',
-        justifyContent: 'center',
-        marginBottom: '50px',
-        textAlign: 'center',
-        gap: '60px',
-      }}
-    >
-      {/* 위치 드롭다운 */}
-      <select
-        value={location}
-        onChange={(e) => setLocation(e.target.value)}
-        style={{
-          padding: '8px 12px',
-          borderRadius: '999px',
-          border: '1px solid #ccc',
-          fontSize: '14px',
-        }}
-      >
-        {locations.map((loc) => (
-          <option key={loc} value={loc}>
-            {loc}
-          </option>
-        ))}
-      </select>
+    <div className={styles.searchContainer}>
 
-      {/* 검색창 */}
-      <input
-        type="text"
-        placeholder="검색어를 입력하세요"
-        value={keyword}
-        onChange={(e) => setKeyword(e.target.value)}
-        style={{
-          padding: '8px 12px',
-          fontSize: '16px',
-          width: '60%',
-          borderRadius: '4px',
-          border: '1px solid #ccc',
-        }}
-      />
+      <div className={styles.searchbox}>
+        <div>
+          <h4>리폼가구 찾기</h4>
+        </div>
 
-      {/* 검색 버튼 */}
-      <button
-        onClick={handleSearch}
-        style={{
-          backgroundColor: '#C84EDB',
-          color: '#fff',
-          border: 'none',
-          borderRadius: '12px',
-          padding: '8px 16px',
-          fontSize: '14px',
-          cursor: 'pointer',
-        }}
-      >
-        검색
-      </button>
+        <div className={styles.searchGroup}>
+          <input type="text" placeholder='검색어를 입력하세요' />
+          <Image src='/icons/search.png' alt="example" width={24} height={24} />
+        </div>
+      </div>
+
+
+
+
+      <div className={styles.filters}>
+        <div className={styles.filtersGroup}>
+          <div className={styles.filterItem}>
+            <Image src='/icons/filter.png' alt="example" width={24} height={24} />
+            <span>전체 필터</span>
+          </div>
+
+
+          <div className={styles.filterItem}>
+            <span>서울/경기</span>
+          </div>
+
+          <div className={styles.filterItem}>
+            <span>충청도</span>
+          </div>
+
+          <div className={styles.filterItem}>
+            <span>경상도</span>
+          </div>
+        </div>
+
+        <div className={styles.filtersGroup}>
+          <Image src='/icons/refresh.png' alt="example" width={24} height={24} />
+          <span>필터 초기화</span>
+        </div>
+
+      </div>
+
+
     </div>
   );
 }

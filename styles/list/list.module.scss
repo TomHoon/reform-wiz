@@ -1,0 +1,31 @@
+.prevButtonImage {
+  transform: rotateY(180deg);
+}
+.prevButton {
+  background: none;
+  border: none;
+}
+
+.pagingWrapper {
+  padding-top: 40px;
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+}
+
+.nextButton {
+  background: none;
+  border: none;
+}
+.pageBtn {
+  margin: 0 6px;
+  padding: 6px 10px;
+  border-radius: 10px;
+  // background-color: #fff;
+  border: none;
+  color: #979797;
+  font-weight: bold;
+  cursor: pointer;
+  background-color: #fff;
+  // color: #fff;
+}
