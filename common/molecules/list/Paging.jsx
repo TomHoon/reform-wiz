@@ -65,16 +65,7 @@ export default function Paging({
         <button
           key={page}
           onClick={() => handlePageChange(page)}
-          style={{
-            margin: '0 6px',
-            padding: '6px 10px',
-            borderRadius: '4px',
-            backgroundColor: '#fff',
-            color: page == currentPage ? '#C84EDB' : '#000',
-            fontWeight: page === currentPage ? 'bold' : 'normal',
-            border: page === currentPage ? '1px solid #ccc' : 'none',
-            cursor: 'pointer',
-          }}
+          className={styles.pageBtn}
         >
           {page}
         </button>
