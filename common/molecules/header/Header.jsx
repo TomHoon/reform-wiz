@@ -1,6 +1,4 @@
-import C_1280 from "../../pages/C_1280";
 import styles from "@/styles/C_Header.module.scss"
-import Image from 'next/image';
 import LoginButtonGroup from "./LoginButtonGroup";
 
 export default function Header({
@@ -13,7 +11,7 @@ export default function Header({
 
 
     <div className={styles.icon}>
-     <h3>WizReform</h3>
+      <h3>WizReform</h3>
     </div>
 
     <div className={styles.navBtnGroup}>
