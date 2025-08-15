@@ -19,6 +19,7 @@ export default async function ListPage({ searchParams }) {
   };
   const res = await getData(param);
   const { data } = res;
+  console.log('data > ', data);
 
   return (
     <>

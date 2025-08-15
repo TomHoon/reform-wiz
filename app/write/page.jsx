@@ -23,7 +23,7 @@ export default function Write() {
       new window.daum.Postcode({
         oncomplete: function (data) {
           console.log('data', data)
-          const { zonecode, address:roadAddress } = data;
+          const { zonecode, address: roadAddress } = data;
           setLocation({
             zonecode,
             roadAddress,
@@ -36,19 +36,28 @@ export default function Write() {
   };
 
   const registerBoard = async () => {
-    console.log('params >>> ', params);
 
     setParams({
       ...params,
       wishPlace: Object.values(location).join(' ')
     });
 
-    const res = await fetch(`${process.env.API_URL}/api/v1/board/register}`, {
+    const formData = new FormData();
+    formData.append("title", params.title);
+    formData.append("content", params.content);
+    formData.append("wishPlace", params.wishPlace);
+
+    for (let file of files) {
+      formData.append("files", file);
+    }
+
+    const res = await fetch(`${process.env.API_URL}/api/v1/board/register`, {
       method: 'POST',
-      body: JSON.stringify(param),
+      body: formData,
+
     });
     const json = await res.json();
-    
+
     console.log('result >>> ', json);
   };
 
@@ -120,26 +129,9 @@ export default function Write() {
             <li className={`${styles.writeItem} ${styles.writeCategory}`}>
               <label htmlFor="">카테고리명</label>
               <div className={styles.selectWrapper}>
-                <C_SelectOption/>
-                <C_SelectOption/>
-                <C_SelectOption/>
-                {/* <ul className={styles.selectGroup}>
-                  <li>소파</li>
-                  <li>의자</li>
-                  <li>고가구</li>
-                </ul>
-
-                <ul className={styles.selectGroup}>
-                  <li>1인소파</li>
-                  <li>2인소파</li>
-                  <li>3인소파</li>
-                </ul>
-
-                <ul className={styles.selectGroup}>
-                  <li>소파</li>
-                  <li>의자</li>
-                  <li>고가구</li>
-                </ul> */}
+                <C_SelectOption />
+                <C_SelectOption />
+                <C_SelectOption />
               </div>
             </li>
 
@@ -186,7 +178,7 @@ export default function Write() {
                   name=""
                   id=""
                   placeholder="상세주소"
-                  onChange={(e) => setLocation({...location, detailAddress: e.target.value})}
+                  onChange={(e) => setLocation({ ...location, detailAddress: e.target.value })}
                 />
               </div>
             </li>
