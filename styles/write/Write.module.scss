@@ -158,3 +158,19 @@
  }
 }
 }
+
+.writePreview {
+  display: flex;
+  gap: 50px;
+  align-items: center;
+  max-width: 800px;
+  overflow-x: scroll;
+}
+.prevItem img {
+  width: 80px;
+  height: 80px;
+  object-fit: contain;
+}
+.writeCategory {
+  min-height: 300px;
+}
