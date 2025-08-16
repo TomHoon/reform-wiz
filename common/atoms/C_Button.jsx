@@ -35,8 +35,8 @@ const fontColorMap = {
 }
 const borderColorMap = {
   none: styles.borderColorNone,
-  purple: styles.fontColorPurple,
-  lightpurple: styles.fontColorLightPurple,
+  purple: styles.borderColorPurple,
+  lightpurple: styles.borderColorLightPurple,
 }
 const fontSizeMap = {
   small: styles.fontSizeSmall,

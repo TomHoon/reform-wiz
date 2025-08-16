@@ -1,0 +1,152 @@
+$bg-page: #F5F5F5;
+$txt-strong: #000;
+$txt-normal: #6C6C6C;
+$txt-placeholder: #ABA2A2;
+$bd-muted: #D0D0D0;
+$brand: #C84EDB;
+
+.joinOuterContainer {
+  display: flex;
+  justify-content: center;
+  padding: 24px;
+  background: $bg-page;
+}
+
+.joinContainer {
+  width: 100%;
+  max-width: 550px;
+  background: #fff;
+  border-radius: 20px;
+  box-shadow: 0 4px 4px rgba(0,0,0,.25);
+  padding: 40px 31px 32px;
+}
+
+.title {
+  display: flex;
+  justify-content: center;
+  font-weight: 700;
+  font-size: 30px;
+  line-height: 22px;
+  color: $txt-strong;
+  margin-bottom: 26px;
+
+}
+
+.joinWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.joinItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  > label {
+    font-weight: 500;
+    font-size: 16px;
+    line-height: 22px;
+    color: $txt-normal;
+  }
+}
+
+// 공통 input
+.field {
+  width: 100%;
+}
+
+// 사업자/계좌
+.fieldTall {
+  width: 100%;
+  padding-top: 4px;
+}
+
+// select 박스
+.selectLike {
+  position: relative;
+
+  select {
+    width: 100%;
+    height: 50px;
+    padding: 10px 36px 10px 12px;
+    border: 1px solid #DFDFDF;
+    border-radius: 15px;
+    background: #fff;
+    font-size: 16px;
+    line-height: 22px;
+    color: $txt-placeholder;
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    outline: none;
+  }
+
+  .caret {
+    position: absolute;
+    right: 14px;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 20px;
+    color: #9E9E9E;
+    pointer-events: none;
+  }
+}
+
+//가로배치 (전화번호/인증번호 영역)
+.row {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.inlineError {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #EB5757;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 22px;
+}
+
+.dangerDot {
+  width: 20px; height: 20px;
+  border-radius: 50%;
+  background: #EB5757;
+}
+
+// 구분선
+.divider {
+  width: 100%;
+  border: 0;
+  border-top: 2px solid #D0D0D0;
+  margin: 12px 0 18px;
+}
+
+// 라디오 그룹
+.radioGroup {
+  width: 100%;
+  display: flex;
+  gap: 24px;
+  align-items: center;
+}
+
+// 제출 버튼 래퍼
+.submitWrap {
+  width: 100%;
+  margin-top: 8px;
+
+  //C_Button, full-width
+  :global(button) {
+    width: 100%;
+    border-radius: 30px;
+  }
+}
+
+@media (max-width: 600px) {
+  .joinContainer { padding: 24px 16px; }
+  .row { flex-direction: column; align-items: stretch; }
+}
