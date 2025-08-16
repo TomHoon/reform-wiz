@@ -5,9 +5,9 @@ import C_1280 from "@/common/pages/C_1280";
 
 export default function ListLayout({ children }) {
  return (
-  <>
+   <>
+   <Header />
    <C_1280>
-    <Header />
     {children}
    </C_1280>
    <Footer />
