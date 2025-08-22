@@ -1,0 +1,38 @@
+.container {
+  background-color: #f2faff;
+  width: 100%;
+}
+
+.row {
+  display: flex;
+  justify-content: space-between;
+  & img {
+    width: 500px;
+  }
+}
+
+.left {
+  display: flex;
+}
+
+.desc {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  justify-content: center;
+}
+
+.top {
+  color: #3ba3c7;
+  font-size: 16px;
+}
+.middle {
+  color: #212121;
+  font-size: 32px;
+  font-weight: 700;
+}
+.bottom {
+  color: #616161;
+  font-size: 18px;
+  font-weight: 400;
+}

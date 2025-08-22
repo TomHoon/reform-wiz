@@ -1,0 +1,65 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 170px;
+}
+
+.introLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.introRight {
+}
+
+.title {
+  color: #c84edb;
+  font-weight: 700;
+  font-size: 48px;
+  & ul {
+    height: 70px;
+    overflow: hidden;
+  }
+  & span {
+    color: #000;
+  }
+}
+.subtitle {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.content {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+
+  & a {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 12px;
+  }
+
+  & .freeEnrollBtn {
+    width: 240px;
+    padding: 16px 24px;
+    background-color: #c84edb;
+    color: #fff;
+  }
+
+  & .askBtn {
+    width: 150px;
+    padding: 15px;
+    color: #c84edb;
+    border: 1px solid #c84edb;
+  }
+}
+.hr {
+  border: 1px solid #eee;
+}
