@@ -1,0 +1,289 @@
+// 306, 950
+
+.container {
+  height: calc(100vh - 365px);
+  background-color: #f5f5f5;
+}
+.left {
+  width: 306px;
+}
+
+.right {
+  width: 950px;
+  background-color: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px 0 rgba(0, 0, 0, 0.16);
+}
+.mainTitle {
+  padding: 30px;
+  border-bottom: 1px solid #e0e0e0;
+  font-size: 24px;
+  font-weight: 400;
+}
+.wrapper {
+  display: flex;
+  padding-top: 30px;
+}
+.mainForm {
+  display: flex;
+  justify-content: center;
+  padding: 30px 0;
+  border-bottom: 1px solid #e0e0e0;
+
+  & .mainCard {
+    cursor: pointer;
+    position: relative;
+
+    width: 356px;
+    border: 1px solid #e0e0e0;
+    padding: 80px;
+    border-radius: 12px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    & .cardTitle {
+      font-size: 18px;
+      color: #212121;
+      font-weight: 500;
+    }
+
+    & .cardContent {
+      font-size: 14px;
+      font-weight: 400;
+      color: #424242;
+
+      & .cardSubContent {
+        font-size: 12px;
+        color: #9e9e9e;
+      }
+    }
+
+    & .img1 {
+      display: block;
+    }
+    & .img2 {
+      display: none;
+    }
+
+    &.active {
+      border: 1px solid #2e6baa;
+      background-color: #f5f9ff;
+
+      & .img1 {
+        display: none;
+      }
+      & .img2 {
+        display: block;
+      }
+
+      & .checkLabel {
+        background: url('https://www.wishket.com/static/renewal/img/component/input/input_radio_on_c.svg')
+          no-repeat;
+      }
+    }
+
+    & .checkBox {
+      display: none;
+    }
+
+    & .checkLabel {
+      position: absolute;
+      left: 10px;
+      top: 10px;
+      width: 16px;
+      height: 16px;
+      background: url('https://www.wishket.com/static/renewal/img/component/input/input_radio_dim.svg')
+        no-repeat;
+    }
+  }
+}
+.buttons {
+  padding: 20px;
+  display: flex;
+  gap: 10px;
+  float: right;
+
+  & button {
+    outline: none;
+    border: none;
+    background: linear-gradient(180deg, #d28add, #a820bd 100%);
+    color: #fff;
+    padding: 11px 24px;
+    border-radius: 4px;
+  }
+}
+
+.subProcess {
+  & .subProcessSteps {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    & .now {
+      color: #616161;
+    }
+    & li {
+      color: #bdbdbd;
+    }
+  }
+}
+
+.subEtc {
+  margin-top: 30px;
+  padding: 15px;
+  border: 1px solid #bfedfa;
+  border-radius: 12px;
+  width: 250px;
+  background-color: #f2fcff;
+
+  & .counsel {
+    & img {
+      width: 50px;
+    }
+    & button {
+      width: 100%;
+      margin-top: 15px;
+      background-color: none;
+      border: none;
+      color: #bfedfa;
+      background-color: #fff;
+      border: 1px solid #e0e0e0;
+      padding: 11px 24px;
+      border-radius: 4px;
+      color: #3ba3c7;
+    }
+  }
+}
+
+.formSection {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  padding: 10px 30px;
+  border-bottom: 1px solid #e0e0e0;
+}
+
+.formItem {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+
+  & .itemTitle {
+    font-size: 18px;
+    font-weight: 700;
+
+    & .itemSupportTitle {
+      font-size: 12px;
+      color: #212121;
+    }
+  }
+
+  & .itemTextArea {
+    width: 100%;
+    border: 0;
+    resize: none;
+    color: #616161;
+    font-size: 14px;
+    min-height: 200px;
+    padding: 8px 12px;
+    outline: none;
+  }
+  & .textAreaBorder {
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+
+    &.active {
+      border: 1px solid #2e6baa;
+    }
+  }
+}
+
+.textAreaGuide {
+  font-size: 14px;
+  color: #9e9e9e;
+  display: flex;
+  justify-content: space-between;
+}
+
+.categoryWrapper {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 30px;
+
+  & .categoryItem {
+    cursor: pointer;
+    background-color: #f5f5f5;
+    padding: 5px 12px;
+    border-radius: 30px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    &.selectedCategory {
+      background-color: #e3edfa;
+      color: #2e6baa;
+    }
+  }
+}
+
+.drawWrapper {
+  width: 240px;
+  position: relative;
+
+  & .drawInput {
+    width: 100%;
+    padding: 8px 12px 8px 38px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    color: #616161;
+    font-size: 14px;
+  }
+  & .drawImage {
+    position: absolute;
+    left: 10px;
+    top: 8px;
+  }
+
+  & .datepicker {
+    width: 100%;
+    padding: 8px 12px 8px 38px;
+    border: 1px solid #e0e0e0;
+    border-radius: 4px;
+    color: #616161;
+    font-size: 14px;
+    cursor: pointer;
+  }
+
+  & .drawPickerImg {
+    position: absolute;
+    left: 10px;
+    top: 3px;
+    z-index: 1;
+  }
+}
+
+.itemSupportTitle {
+  color: #212121;
+  font-size: 14px;
+  font-weight: 400;
+}
+
+.durationWrapper {
+  width: 240px;
+  position: relative;
+}
+.wishDuration {
+  width: 100%;
+  padding: 8px 12px 8px 2px;
+  border: 1px solid #e0e0e0;
+  border-radius: 4px;
+  color: #616161;
+  font-size: 14px;
+}
+
+.wishDurationDay {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  font-size: 12px;
+  color: #9e9e9e;
+}
