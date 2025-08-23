@@ -10,10 +10,13 @@ export default function Footer() {
             <ul>
               <li>
                 <p className={styles.main}>
-                  <span>Reform Wiz</span>
+                  <span>리폼위즈</span>
                 </p>
               </li>
-              <li>고객을 위해 최선을 다합니다</li>
+              <li>
+                10:00-18:00 연중무휴<br />
+                wiz@naver.com
+              </li>
               <li className={styles.sns}>
                 <span>인스타</span>
                 <span>인스타</span>
@@ -43,12 +46,26 @@ export default function Footer() {
           </div>
         </div>
 
-        <div className={ styles.footerInfo }>
+        <div className={styles.footerInfo}>
           <p>
             <span>이용약관</span>
+            <span className={styles.divider}></span>
             <span>개인정보 처리방침</span>
-            </p>
+          </p>
+          <p className={styles.subInfo}>
+            <span>(주)리폼위즈</span>
+            <span className={styles.divider}></span>
+            <span>대표이사: 홍길동</span>
+            <span className={styles.divider}></span>
+            <span>서울특별시 강남구</span>
+          </p>
+          <p className={styles.subInfo}>
+            <span>사업자등록번호 : 123-21-22222</span>
+            <span>통신판매업신고 : 제2018-서울강남-123312 호</span>
+            <span>직업정보제공사업 신고번호 : 123123</span>
+          </p>
         </div>
+
       </C_1280>
     </footer>
   );
