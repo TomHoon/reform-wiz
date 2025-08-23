@@ -17,12 +17,27 @@
   color: #c84edb;
   font-weight: 700;
   font-size: 48px;
-  & ul {
-    height: 70px;
+
+  & .slotContainer {
+    height: 62px;
     overflow: hidden;
+  }
+  
+  & ul {
+    animation: slide 2s infinite; /* 2초마다, 무한 반복 */
+    transition: transform 0.2s ease-in;
   }
   & span {
     color: #000;
+  }
+}
+@keyframes slide {
+  0% {
+    transform: translateY(0%);
+  }
+  
+  100% {
+    transform: translateY(-60px);
   }
 }
 .subtitle {
