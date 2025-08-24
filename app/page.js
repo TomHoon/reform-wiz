@@ -12,11 +12,12 @@ export default function Home() {
     <>
       <Header />
       <MainVisual />
+      <Marketing />
+
       <LandingBanner />
       <Questions />
       <FailBanner />
-      <Marketing />
-      <Footer/>
+      <Footer />
     </>
   );
 }
