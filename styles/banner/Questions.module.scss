@@ -1,0 +1,41 @@
+.container {
+  margin-top: 120px;
+  margin-bottom: 120px;
+}
+.wrapper {
+  display: flex;
+  justify-content: space-between;
+  position: relative;
+}
+
+.right {
+  display: flex;
+  flex-direction: column;
+  gap: 50px;
+}
+
+.left {
+  & p {
+    font-size: 42px;
+    font-weight: 500;
+  }
+}
+.row {
+  display: flex;
+  min-width: 450px;
+  gap: 50px;
+
+  & p {
+    font-size: 18px;
+    font-weight: 500;
+    color: #212121;
+  }
+
+  button {
+    background-color: #fff;
+    border: none;
+    position: absolute;
+    right: 10px;
+  }
+  border-bottom: 1px solid #eee;
+}

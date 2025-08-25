@@ -1,0 +1,95 @@
+.container {
+  display: flex;
+  align-items: center;
+  gap: 170px;
+}
+
+.introLeft {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.introRight {
+}
+
+.title {
+  color: #c84edb;
+  font-weight: 700;
+  font-size: 48px;
+
+  & .slotContainer {
+    height: 62px;
+    overflow: hidden;
+  }
+
+  & ul {
+    & li:first-child {
+      animation: slide 6s linear infinite; /* 초마다, 무한 반복 */
+    }
+  }
+  & span {
+    color: #000;
+  }
+}
+@keyframes slide {
+  0% {
+    margin-top: 70px;
+  }
+  5% {
+    margin-top: 0px;
+  }
+  33% {
+    margin-top: 0px;
+  }
+  38% {
+    margin-top: -70px;
+  }
+  66% {
+    margin-top: -70px;
+  }
+  71% {
+    margin-top: -140px;
+  }
+  100% {
+    margin-top: -140px;
+  }
+}
+.subtitle {
+  font-weight: 700;
+  font-size: 48px;
+}
+
+.content {
+  font-size: 18px;
+  font-weight: 400;
+}
+
+.buttons {
+  display: flex;
+  gap: 20px;
+
+  & a {
+    text-align: center;
+    font-size: 18px;
+    font-weight: 500;
+    border-radius: 12px;
+  }
+
+  & .freeEnrollBtn {
+    width: 240px;
+    padding: 16px 24px;
+    background-color: #c84edb;
+    color: #fff;
+  }
+
+  & .askBtn {
+    width: 150px;
+    padding: 15px;
+    color: #c84edb;
+    border: 1px solid #c84edb;
+  }
+}
+.hr {
+  border: 1px solid #eee;
+}

@@ -5,5 +5,6 @@ export default function C_1280({ children }) {
   <div className={styles.auto1280}>
    {children}
   </div>
+
  )
 }
