@@ -6,34 +6,6 @@ import { useEffect, useState } from 'react';
 
 export default function MainVisual() {
   const template = ['고가구리폼', '소파리폼', '가죽교체'];
-  const [list, setList] = useState([...template]);
-  const [idx, setIdx] = useState(0);
-
-  const handleTransitionEnd = () => {
-    console.log(idx);
-    if (idx == 0) {
-      setList([template[0], template[1]]);
-    }
-
-    if (idx == 1) {
-      setList([template[1], template[2]]);
-    }
-
-    if (idx == 2) {
-      setList([template[2], template[0]]);
-    }
-  }
-  
-
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setIdx((prev) => {
-        const next = (prev + 1) % template.length;
-        return next;
-      });
-    }, 2000);
-    return () => clearInterval(interval);
-  }, [list.length]);
 
   return (
     <>
@@ -42,10 +14,8 @@ export default function MainVisual() {
           <div className={styles.introLeft}>
             <div className={styles.title}>
               <div className={styles.slotContainer}>
-                <ul
-                  onTransitionEnd={handleTransitionEnd} // ✅
-                >
-                  {list.map((word) => (
+                <ul>
+                  {template.map((word) => (
                     <li key={word}>{word}</li>
                   ))}
                 </ul>

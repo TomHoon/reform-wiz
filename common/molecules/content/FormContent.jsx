@@ -144,7 +144,6 @@ export default function FormContent() {
                           <ul>
                             <li className={styles.uploadImageItem}>
                               <button className={styles.cancelBtn} />
-                              <img src="https://media.bunjang.co.kr/images/crop/1510377046_w266.jpg" alt="" />
                             </li>
                           </ul>
                         </div>

@@ -4,6 +4,13 @@ import LoginButtonGroup from "./LoginButtonGroup";
 export default function Header({
 }) {
 
+  const navList = [
+    { link: '/company/list', title: '리폼업체 찾기' },
+    { link: '/form', title: '리폼할 가구 등록' },
+    { link: '/', title: 'NEWS' },
+    { link: '/', title: '상담문의' },
+  ]
+
 
   return (
     <div className={styles.container}>
@@ -11,15 +18,18 @@ export default function Header({
 
 
         <div className={styles.icon}>
-          <h3>WizReform</h3>
+          <h3><a href="/">WizReform</a></h3>
         </div>
 
         <div className={styles.navBtnGroup}>
           <ul>
             {
-              ['리폼업체 찾기', '리폼가구 등록', 'NEWS', '상담문의'].map(item => (
-                <li className={styles.navBtn} key={item}>
-                  {item}
+              navList.map((item, idx) => (
+                <li className={styles.navBtn} key={idx}>
+                  <a href={item.link}>
+                    {item.title}
+
+                  </a>
                 </li>
               ))
             }

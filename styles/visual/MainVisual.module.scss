@@ -22,10 +22,11 @@
     height: 62px;
     overflow: hidden;
   }
-  
+
   & ul {
-    animation: slide 2s infinite; /* 2초마다, 무한 반복 */
-    transition: transform 0.2s ease-in;
+    & li:first-child {
+      animation: slide 6s linear infinite; /* 2초마다, 무한 반복 */
+    }
   }
   & span {
     color: #000;
@@ -33,11 +34,25 @@
 }
 @keyframes slide {
   0% {
-    transform: translateY(0%);
+    margin-top: 70px;
   }
-  
+  5% {
+    margin-top: 0px;
+  }
+  33% {
+    margin-top: 0px;
+  }
+  38% {
+    margin-top: -70px;
+  }
+  66% {
+    margin-top: -70px;
+  }
+  71% {
+    margin-top: -140px;
+  }
   100% {
-    transform: translateY(-60px);
+    margin-top: -140px;
   }
 }
 .subtitle {
