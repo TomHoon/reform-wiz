@@ -6,13 +6,33 @@ import { useEffect, useState } from 'react';
 export default function Login() {
  const [activeType, setActiveType] = useState('일반');
  const [pressed, setPressed] = useState(false);
+ const [param, setParam] = useState({});
 
- const goLogin = () => {
+ const goLogin = async () => {
   setPressed(true);
 
   setTimeout(() => {
    setPressed(false);
   }, 200);
+
+  const res = await fetch(`${process.env.API_URL}/api/v1/member/login`, {
+   headers: {
+    'Content-Type': 'application/json'
+   },
+   method: 'POST',
+   body: JSON.stringify(param),
+   credentials: "include", // ✅ crucial
+  });
+
+  const json = await res.json();
+  console.log('json >> ', json);
+
+  if (json.status === 'success') {
+   localStorage.setItem("isLogin", true);
+   location.href = '/';
+  } else {
+   alert('로그인실패')
+  }
 
  }
 
@@ -35,8 +55,8 @@ export default function Login() {
     </div>
 
     <div className={styles.inputArea}>
-     <input type="text" placeholder='아이디' />
-     <input type="password" placeholder='비밀번호' />
+     <input type="text" placeholder='아이디' onChange={(e) => setParam({ ...param, memberId: e.target.value })} />
+     <input type="password" placeholder='비밀번호' onChange={(e) => setParam({ ...param, password: e.target.value })} />
      {/* <img src="/icons/eye.png" alt="" /> */}
      <img src="/icons/eye-slash.png" alt="" />
      <button className={`${pressed && styles.pressed}`} onClick={() => goLogin()}>로그인</button>
