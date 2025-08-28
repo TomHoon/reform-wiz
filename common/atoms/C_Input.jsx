@@ -43,8 +43,8 @@ export default function C_Input({
     type={type}
     className={`${sizeMap[size]} ${styles.defaultInput} ${error && styles.error}`}
     placeholder={placeholder}
-    onClick={() => clickCallback()}
-    onChange={() => changeCallback()}
+    onClick={(e) => clickCallback(e)}
+    onChange={(e) => changeCallback(e)}
     onError={() => errorCallback()}
     name={groupName}
    />

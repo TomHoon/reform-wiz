@@ -7,15 +7,34 @@ import C_Button from '@/common/atoms/C_Button';
 
 export default function JoinClient() {
   const [memberType, setMemberType] = useState('company');
+  const [param, setParam] = useState({});
+
+  const goJoin = async () => {
+    const res = await fetch(`${process.env.API_URL}/api/v1/member/join`, {
+      headers: {
+        'Content-Type': 'application/json'
+      },
+      method: 'POST',
+      body: JSON.stringify(param),
+    });
+
+    const json = await res.json();
+    
+  }
 
   return (
-    <form>
+    <div>
          <ul className={styles.joinWrapper}>
           {/* 아이디 */}
           <li className={styles.joinItem}>
             <label>아이디</label>
             <div className={styles.field}>
-              <C_Input type="text" size="A" placeholder="아이디 입력" />
+              <C_Input 
+                type="text" 
+                size="A" 
+                placeholder="아이디 입력" 
+                changeCallback={(e) => setParam({...param, memberId: e.target.value})}
+              />
             </div>
           </li>
 
@@ -23,7 +42,12 @@ export default function JoinClient() {
           <li className={styles.joinItem}>
             <label>비밀번호</label>
             <div className={styles.field}>
-              <C_Input type="password" size="A" placeholder="비밀번호 입력" />
+              <C_Input 
+                type="password" 
+                size="A" 
+                placeholder="비밀번호 입력" 
+                changeCallback={(e) => setParam({...param, password: e.target.value})}
+              />
             </div>
           </li>
 
@@ -31,7 +55,12 @@ export default function JoinClient() {
           <li className={styles.joinItem}>
             <label>비밀번호 확인</label>
             <div className={styles.field}>
-              <C_Input type="password" size="A" placeholder="비밀번호 확인" error />
+              <C_Input 
+                type="password" 
+                size="A" 
+                placeholder="비밀번호 확인" 
+                error 
+              />
             </div>
           </li>
 
@@ -39,7 +68,12 @@ export default function JoinClient() {
           <li className={styles.joinItem}>
             <label>이름</label>
             <div className={styles.field}>
-              <C_Input type="text" size="A" placeholder="홍길동" />
+              <C_Input 
+                type="text" 
+                size="A" 
+                placeholder="홍길동" 
+                changeCallback={(e) => setParam({...param, name: e.target.value})}
+              />
             </div>
           </li>
 
@@ -47,7 +81,11 @@ export default function JoinClient() {
           <li className={styles.joinItem}>
             <label>생년 월일</label>
             <div className={styles.field}>
-              <C_Input type="text" size="A" placeholder="생년월일(YYYY/MM/DD)" />
+              <C_Input 
+                type="text" 
+                size="A" 
+                placeholder="생년월일(YYYY/MM/DD)" 
+              />
             </div>
           </li>
 
@@ -70,7 +108,12 @@ export default function JoinClient() {
             <label>전화번호</label>
             <div className={styles.row}>
               <div className={styles.field}>
-                <C_Input type="tel" size="B" placeholder="01012345678" />
+                <C_Input 
+                  type="tel" 
+                  size="B" 
+                  placeholder="01012345678" 
+                  changeCallback={(e) => setParam({...param, phone: e.target.value})}
+                />
               </div>
               <C_Button
                 text="인증번호전송"
@@ -115,14 +158,14 @@ export default function JoinClient() {
             size="B"
             title="업체"
             groupName="memberType"
-            clickCallback={() => setMemberType('company')}
+            changeCallback={(e) => setParam({...param, isCompany: e.target.value === 'on'})}
           />
           <C_Input
             type="radio"
             size="B"
             title="일반회원"
             groupName="memberType"
-            clickCallback={() => setMemberType('normal')}
+            changeCallback={(e) => setParam({...param, isCompany: e.target.value === 'on'})}
           />
         </li>
 
@@ -153,8 +196,9 @@ export default function JoinClient() {
           backgroundColor="purple"
           shadow="light"
           fontSize="large"
+          clickCallback={goJoin}
         />
       </div>
-    </form>
+    </div>
   );
 }
