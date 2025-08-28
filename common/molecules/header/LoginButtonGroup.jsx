@@ -3,7 +3,10 @@
 import styles from "@/styles/C_Header.module.scss"
 
 export default function LoginButtonGroup() {
- const isLogin = localStorage.getItem("isLogin");
+let isLogin = false;
+if (typeof window !== "undefined") {
+    isLogin = localStorage.getItem("isLogin");
+}
 
   const joinCb = () => {
       location.href = "/join";
@@ -11,7 +14,9 @@ export default function LoginButtonGroup() {
 
  const loginCb = async () => {
   if (isLogin) {
-   localStorage.removeItem("isLogin");
+    if (typeof window !== "undefined") {
+        localStorage.removeItem("isLogin");
+    }
 
    const res = await fetch(`${process.env.API_URL}/api/v1/member/logout`, {
     headers: {

@@ -28,7 +28,9 @@ export default function Login() {
   console.log('json >> ', json);
 
   if (json.status === 'success') {
-   localStorage.setItem("isLogin", true);
+    if (typeof window !== "undefined") {
+        localStorage.setItem("isLogin", true);
+    }
    location.href = '/';
   } else {
    alert('로그인실패')
