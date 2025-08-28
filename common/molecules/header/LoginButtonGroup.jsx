@@ -5,6 +5,10 @@ import styles from "@/styles/C_Header.module.scss"
 export default function LoginButtonGroup() {
  const isLogin = localStorage.getItem("isLogin");
 
+  const joinCb = () => {
+      location.href = "/join";
+  }
+
  const loginCb = async () => {
   if (isLogin) {
    localStorage.removeItem("isLogin");
