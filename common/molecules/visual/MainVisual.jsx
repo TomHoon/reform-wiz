@@ -2,10 +2,33 @@
 
 import styles from '@/styles/visual/MainVisual.module.scss';
 import C_1280 from '@/common/pages/C_1280';
-import { useEffect, useState } from 'react';
+import { useEffect, useState, useRef } from 'react';
 
 export default function MainVisual() {
   const template = ['고가구리폼', '소파리폼', '가죽교체'];
+  const ulRef = useRef(null);
+
+  useEffect(() => {
+    setInterval(() => {
+      const height = ulRef.current.clientHeight;
+
+      ulRef.current.style.transition = 'transform 0.7s ease-in-out';
+      ulRef.current.style.transform = `translateY(-${70}px)`;
+
+      setTimeout(() => {
+        
+        const child = ulRef.current.firstElementChild;
+        ulRef.current.appendChild(child);
+
+        void ulRef.current.style.clientWidth;
+
+        ulRef.current.style.transition = 'none';
+        ulRef.current.style.transform = `translateY(-${0}px)`;
+
+
+      }, 1000);
+    }, 1300);
+  }, []);
 
   return (
     <>
@@ -14,7 +37,7 @@ export default function MainVisual() {
           <div className={styles.introLeft}>
             <div className={styles.title}>
               <div className={styles.slotContainer}>
-                <ul>
+                <ul ref={ulRef}>
                   {template.map((word) => (
                     <li key={word}>{word}</li>
                   ))}
