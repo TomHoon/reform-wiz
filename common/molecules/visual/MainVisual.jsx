@@ -10,10 +10,10 @@ export default function MainVisual() {
 
   useEffect(() => {
     setInterval(() => {
-      const height = ulRef.current.clientHeight;
+      const height = ulRef.current.firstElementChild.clientHeight;
 
       ulRef.current.style.transition = 'transform 0.7s ease-in-out';
-      ulRef.current.style.transform = `translateY(-${70}px)`;
+      ulRef.current.style.transform = `translateY(-${height}px)`;
 
       setTimeout(() => {
         
